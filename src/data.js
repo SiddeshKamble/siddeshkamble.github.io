@@ -16,8 +16,8 @@ export const NAV_ITEMS = [
 ];
 
 export const ABOUT_PARAGRAPHS = [
-  "I’m a software engineer and graduate computer science student at Syracuse University, graduated in December 2025. I build reliable, scalable software systems and full-stack products with a strong focus on backend architecture, data, and cloud infrastructure.",
-  "I’m comfortable working with Python, Node.js and TypeScript, React and Next.js, MySQL, Docker, and CI/CD pipelines. I care about writing software that is fast, maintainable, and built for real users.",
+  "I like thinking in systems rather than snippets and care about structure, clarity, and whether a solution will hold up in the real world. My coding style is pragmatic and outcome driven, focusing on clean abstractions, predictable behavior, and designs that are easy to reason about and grow.",
+  "I’m comfortable working with Python, Node.js, TypeScript, React, MySQL, Docker, and CI/CD pipelines. I care about writing software that is fast, maintainable, and built for real users.",
   "If you’re building software, working on a startup, contributing to open source, or just want to talk tech, feel free to reach out. I’m always happy to grab a coffee and chat.",
 ];
 

@@ -14,7 +14,7 @@ export default function Home() {
     <section className="py-10">
       <h1 className="text-3xl font-semibold">hi, i&apos;m siddesh.</h1>
       <p className="mt-4 leading-relaxed opacity-90">
-        Software engineer and CS graduate student at Syracuse University, graduated in December 2025. I build reliable, scalable software systems and full-stack products with experience across backend, cloud, and databases.
+        Software engineer and CS graduate student at Syracuse University, graduated in December 2025. I build scalable software systems and full-stack products with experience across backend, cloud, and databases.
       </p>
 
       <p className="mt-3 leading-relaxed opacity-90">
