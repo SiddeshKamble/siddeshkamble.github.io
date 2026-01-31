@@ -1,0 +1,56 @@
+{
+  "experience": [
+    {
+      "title": "Software Developer",
+      "company": "iConsult Collaborative",
+      "dates": "Jan 2025 - Dec 2025",
+      "highlights": [
+        "Led full-stack development of a scalable applicant management platform used by internal caseworkers.",
+        "Improved intake, eligibility, and reporting workflows."
+      ],
+      "tech": ["React", "Next.js", "MySQL", "Prisma ORM", "Tailwind CSS"]
+    },
+    {
+      "title": "Conversational AI Engineer",
+      "company": "Quantiphi Inc.",
+      "dates": "Jun 2021 - Oct 2023",
+      "highlights": [
+        "Built and maintained production-grade conversational AI systems across web, mobile, and telephony.",
+        "Designed API-driven conversational backends, routing logic, and fallback strategies."
+      ],
+      "tech": ["Dialogflow", "Node.js", "GCP", "Cloud Functions"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "RescueRouter",
+      "description": "Built a cloud-native, full-stack system that optimizes emergency responder routing in real time using graph algorithms, live location tracking, and predictive analytics, with scalable backend services and interactive dashboards for dispatch and response management.",
+      "tech": ["React", "Node.js", "Prisma", "Docker", "Dijkstra"]
+    },
+    {
+      "name": "Secure File Locker",
+      "description": "Secure File Locker is a secure file storage and sharing system designed for untrusted environments. All cryptographic operations are performed locally, ensuring that plaintext data and secret keys never leave the user control.",
+      "tech": ["Python", "AES-GCM", "SQLAlchemy"]
+    },
+    {
+      "name": "Activity Detector and Alert Generator",
+      "description": "Activity Detector and Alert Generator aims to take real-time videos from CCTV as an input and pass it to the CNN model created with the help of transfer learning and detect Shoplifting, Robbery or Break-In in the store and notify it to the owners as soon as it occurs. Finally the main motive is to provide a system that detects suspicious activities without human intervention and generates alert, thus making a huge revolution in today surveillance system.",
+      "tech": ["ML", "Python", "Transfer Learning", "CNN"]
+    },
+    {
+      "name": "Sarcasm Detection Application",
+      "description": "A comprehensive machine learning application that detects sarcasm in text using multiple ML and deep learning models. Built with Streamlit for an interactive web interface.",
+      "tech": ["Python", "NLP", "ML", "Deep Learning", "Streamlit"]
+    },
+    {
+      "name": "Healthcare Chatbot",
+      "description": "Healthcare chatbot is built with medical applications having the potential to reduce healthcare cost and improves accessibility to medical knowledge by a simple chat through method.",
+      "tech": ["Javascript", "Dialogflow", "Tailwind CSS"]
+    },
+    {
+      "name": "DuckHunt AR Game",
+      "description": "DuckHuntAR is an augmented reality mobile game that brings the classic Duck Hunt experience into the real world, allowing players to hunt virtual ducks overlaid onto their physical environment using a smartphone camera and real time AR interactions.",
+      "tech": ["C#", "Unity3D", "Vuforia"]
+    }
+  ]
+}
