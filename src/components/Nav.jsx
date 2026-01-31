@@ -12,8 +12,8 @@ const NAV = [
 
 export default function Nav({ theme = "light", onToggleTheme }) {
   return (
-    <nav aria-label="Primary" className="w-full flex justify-center py-6">
-      <div className="text-sm">
+    <nav aria-label="Primary" className="w-full py-6">
+      <div className="mx-auto max-w-3xl px-4 text-sm">
         {NAV.map((item, i) => (
           <span key={item.to}>
             <NavLink
@@ -28,18 +28,16 @@ export default function Nav({ theme = "light", onToggleTheme }) {
           </span>
         ))}
         <span className="px-2">•</span>
-<span>
-  <button
-    type="button"
-    onClick={onToggleTheme}
-    className="underline underline-offset-4 hover:opacity-70"
-    aria-label="Toggle dark mode"
-  >
-    {theme === "dark" ? "light" : "dark"}
-  </button>
-</span>
-
-
+        <span>
+          <button
+            type="button"
+            onClick={onToggleTheme}
+            className="underline underline-offset-4 hover:opacity-70"
+            aria-label="Toggle dark mode"
+          >
+            {theme === "dark" ? "light" : "dark"}
+          </button>
+        </span>
       </div>
     </nav>
   );

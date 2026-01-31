@@ -18,19 +18,36 @@ export default function Home() {
       </p>
 
       <p className="mt-3 leading-relaxed opacity-90">
-  <a className="underline underline-offset-4 hover:opacity-70" href={`mailto:${EMAIL}`}>
+  <a
+    href={`mailto:${EMAIL}`}
+    className="text-blue-600 underline underline-offset-4 hover:opacity-80"
+  >
     {EMAIL}
   </a>{" "}
   •{" "}
-  <a className="underline underline-offset-4 hover:opacity-70" href={GITHUB} target="_blank" rel="noreferrer">
+  <a
+    href={GITHUB}
+    target="_blank"
+    rel="noreferrer"
+    className="text-blue-600 underline underline-offset-4 hover:opacity-80"
+  >
     github
   </a>{" "}
   •{" "}
-  <a className="underline underline-offset-4 hover:opacity-70" href={LINKEDIN} target="_blank" rel="noreferrer">
+  <a
+    href={LINKEDIN}
+    target="_blank"
+    rel="noreferrer"
+    className="text-blue-600 underline underline-offset-4 hover:opacity-80"
+  >
     linkedin
   </a>{" "}
   •{" "}
-  <a className="underline underline-offset-4 hover:opacity-70" href={RESUME_PATH} download="SiddeshKamble_Resume.pdf">
+  <a
+    href={RESUME_PATH}
+    download="SiddeshKamble_Resume.pdf"
+    className="text-blue-600 underline underline-offset-4 hover:opacity-80"
+  >
     resume
   </a>
 </p>
