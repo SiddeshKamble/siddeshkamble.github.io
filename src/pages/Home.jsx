@@ -62,7 +62,7 @@ export default function Home() {
 </div>
 
 <img
-  src="/about-placeholder.png"
+  src="/w.png"
   alt="Workspace placeholder"
   className="mt-6 w-full max-w-2xl mx-auto rounded-md border border-[color:var(--border)]"
   loading="lazy"
