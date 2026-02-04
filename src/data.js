@@ -16,7 +16,7 @@ export const NAV_ITEMS = [
 ];
 
 export const ABOUT_PARAGRAPHS = [
-  "I like thinking in systems rather than snippets and care about structure, clarity, and whether a solution will hold up in the real world. My coding style is pragmatic and outcome driven, focusing on clean abstractions, predictable behavior, and designs that are easy to reason about and grow.",
+  "My journey has been one of relentless curiosity and growth, turning every challenge into an opportunity to learn and make an impact.",
   "I’m comfortable working with Python, Node.js, TypeScript, React, MySQL, Docker, and CI/CD pipelines. I care about writing software that is fast, maintainable, and built for real users.",
   "If you’re building software, working on a startup, contributing to open source, or just want to talk tech, feel free to reach out. I’m always happy to grab a coffee and chat.",
 ];
@@ -96,8 +96,6 @@ export const EXPERIENCES = [
   },
 ];
 
-
-
 export const PROJECTS = [
   {
     slug: "rescueroute",
@@ -113,46 +111,48 @@ export const PROJECTS = [
       "Responder flow: view queue, update status, coordinate response.",
       "Routing-oriented product thinking (speed + clarity under stress).",
     ],
-    details:
-      `
-# RescueRoute 🚧 Under Construction 🚧
-AI-powered emergency response and routing platform (Weekly timeline)
+    details: `
+# RescueRoute
 
----
+## Overview
+RescueRoute is an emergency request + response platform designed to reduce confusion during high-stress incidents. Citizens can quickly submit requests and track progress, while responders manage a queue and update statuses as the situation evolves.
 
-## Week 3 Progress
-- Added demo logins for all components (**Citizens + Responders**) to directly access respective dashboards 😪
-- Made UI improvements across Login and Dashboard views
-- Citizens can now cancel emergencies
-- Added information tiles for each responder type
+## What I built
+- Citizen flow: submit request, track status, cancel request
+- Responder dashboard: view incoming requests and update incident status
+- Demo logins for Citizens and Responders for fast testing and demos
+- UI improvements across login and dashboards for clarity and speed
 
 <img
   src="https://github.com/user-attachments/assets/465c554f-4bbc-4b49-b10c-6ad4f98315d2"
   width="100%"
-  alt="Week 3 Dashboard View"
+  alt="Dashboard View"
 />
 
 <img
   src="https://github.com/user-attachments/assets/2c384dc5-5a44-4a05-b166-527ab1f46d3c"
   width="100%"
-  alt="Week 3 Citizen View"
+  alt="Citizen View"
 />
 
----
-
-## Week 2 Progress
-- Fixed backend connections to establish a proper end-to-end flow
-- Added emergency cancellation and status update actions on the responder dashboard  
-  *(UI polish + demo logins pending 😮‍💨)*
+## Technical notes
+- Built with React + Node.js; focused on clean API-driven flows
+- Routing concept grounded in shortest-path thinking (Dijkstra) for response planning
+- Status-driven UI to keep state changes consistent and visible
 
 <img
   src="https://github.com/user-attachments/assets/c5f3e47b-ab69-4c80-9fed-31104057039b"
   width="100%"
-  alt="Week 2 Responder Dashboard"
+  alt="Responder Dashboard"
 />
-`
-,
+
+## Next steps
+- Route ETA + better dispatch prioritization
+- Audit/history for status changes
+- Stronger edge-case handling (duplicate requests, inactive responders)
+`,
   },
+
   {
     slug: "sarcasm-detection",
     title: "Sarcasm Detection App",
@@ -164,97 +164,42 @@ AI-powered emergency response and routing platform (Weekly timeline)
     liveUrl: "https://sarcasm-detection-app.streamlit.app/",
     highlights: [
       "Trained and compared multiple ML / DL approaches for sarcasm classification.",
-      "Built a clean UI for demo + evaluation.",
-      "Packaged for repeatable runs and iteration.",
+      "Built a clean Streamlit UI for demos and evaluation.",
+      "Packaged for repeatable runs and quick iteration.",
     ],
     details: `
-# Sarcasm Detection App 
+# Sarcasm Detection App
 
-A comprehensive machine learning application that detects sarcasm in text using multiple ML and deep learning models. Built with Streamlit for an interactive web interface.
+## Overview
+A Streamlit-based application that detects sarcasm in text using multiple ML and deep learning models. The focus is on a demo-friendly interface while keeping model training, evaluation, and comparison structured.
 
+<img width="1298" height="643" alt="App UI" src="https://github.com/user-attachments/assets/70b17bfc-1781-4148-8816-4c4f777f6427" />
 
-<img width="1298" height="643" alt="Screenshot 2026-01-30 at 10 35 32 PM" src="https://github.com/user-attachments/assets/70b17bfc-1781-4148-8816-4c4f777f6427" />
+## What I built
+- Streamlit UI for real-time predictions on custom text
+- Multiple model pipeline (baseline ML + transformer models)
+- Model comparison workflow with clear evaluation outputs
+- EDA section to understand dataset signal and limitations
 
+## Models implemented
+- Naive Bayes
+- Logistic Regression (TF-IDF with n-grams)
+- Pretrained RoBERTa sarcasm model
+- DistilBERT (lighter transformer for faster inference)
 
+## Dataset (high level)
+Reddit sarcasm dataset containing comment text + labels, with supporting metadata (subreddit, score, author, parent context).
 
-## Features
+<img width="1499" height="865" alt="EDA View" src="https://github.com/user-attachments/assets/bf16a6a6-931e-4348-b3e3-c1bb1bee1b36" />
 
-- **Multiple ML Models**: Naive Bayes, Logistic Regression, Pretrained RoBERTa, and DistilBERT
-- **Interactive Web Interface**: Built with Streamlit for easy use
-- **Comprehensive EDA**: Detailed exploratory data analysis with visualizations
-- **Real-time Predictions**: Test sarcasm detection on custom text inputs
-- **Model Comparison**: Compare performance across different algorithms
+<img width="1294" height="637" alt="Model Comparison" src="https://github.com/user-attachments/assets/5366a4a4-0169-4874-9d1f-54a3f91cfee3" />
 
-## Dataset
-
-The app uses a Reddit sarcasm detection dataset (sarcasm.csv) containing:
-- **comment**: Text comments from Reddit
-- **label**: Binary labels (1 = sarcasm, 0 = not sarcasm)
-- **subreddit**: Source subreddit
-- **score**: Reddit score/upvotes
-- **author**: Comment author
-- **parent_comment**: Parent comment context
-
-    
-<img width="1499" height="865" alt="Screenshot 2026-01-30 at 10 35 50 PM" src="https://github.com/user-attachments/assets/bf16a6a6-931e-4348-b3e3-c1bb1bee1b36" />
-
-<img width="1294" height="637" alt="Screenshot 2026-01-30 at 10 36 40 PM" src="https://github.com/user-attachments/assets/5366a4a4-0169-4874-9d1f-54a3f91cfee3" />
-
-## Models Implemented
-
-### 1. **Naive Bayes**
-- Uses CountVectorizer for feature extraction
-- Fast training and prediction
-- Good baseline performance
-
-### 2. **Logistic Regression**
-- TF-IDF vectorization with n-grams (1,2)
-- Max features: 5000
-- Robust linear classifier
-
-### 3. **Pretrained RoBERTa**
-- Model: jkhan447/sarcasm-detection-RoBerta-base-CR
-- Fine-tuned specifically for sarcasm detection
-- State-of-the-art transformer architecture
-
-### 4. **DistilBERT**
-- Lightweight BERT variant
-- Faster inference while maintaining performance
-- Good balance between speed and accuracy
-
-## App Sections
-
-### Home
-Welcome page with project overview and features
-
-### Dataset Overview
-- Dataset preview
-- Class distribution visualization
-- Basic statistics
-
-### EDA (Exploratory Data Analysis)
-- Sarcasm proportion by comment length
-- Top words in sarcastic vs non-sarcastic comments
-- Subreddit analysis
-- Reddit score distributions
-- Word clouds for both classes
-
-### Model Training
-- Train all models with one click
-- Automatic model serialization
-- Performance metrics calculation
-
-### Interactive Prediction
-- Real-time sarcasm detection
-- Test custom sentences
-- Compare predictions across all models
-
----
-
-## Quote
-> “Sarcasm is the lowest form of wit but the highest form of intelligence.”
+## Key learnings
+- Strong baselines are great for iteration; transformers add nuance but increase complexity
+- A clean UI makes model capabilities easy to understand and demo
 `,
   },
+
   {
     slug: "secure-file-locker",
     title: "Secure File Locker",
@@ -268,40 +213,40 @@ Welcome page with project overview and features
     highlights: [
       "Designed for untrusted storage assumptions.",
       "Access control and encryption-first workflow.",
-      "Focus on practical security and usability tradeoffs.",
+      "Focused on practical security + usability tradeoffs.",
     ],
     details: `
-# Secure File Locker 
+# Secure File Locker
 
-**Secure File Locker** is a cryptography-based file storage and sharing system that protects files at rest and in transit. It supports secure sharing, access revocation, and tamper-evident audit logging—without re-encrypting files.
+## Overview
+A cryptography-based file storage and sharing system that protects files at rest and in transit. It supports secure sharing, access revocation, and tamper-evident audit logging—without re-encrypting files.
 
 <img width="621" height="489" alt="Demo" src="https://github.com/user-attachments/assets/3d378b35-af9e-4b19-91ed-d030398f21fe" />
 
----
+## Demo flow
+1) Register users (keys generated and stored securely)  
+2) Upload → encrypt locally with a unique AES-GCM key  
+3) Share → wrap the file key for a target user (no file re-encryption)  
+4) Download → unwrap key + decrypt locally  
+5) Revoke → remove wrapped key entry to revoke access  
+6) Audit → detect tampering via integrity checks
 
-## Demo Flow
+<img width="875" height="654" alt="Upload and Share Flow" src="https://github.com/user-attachments/assets/9b6f2642-6db1-472d-ba33-0a19f909c47e" />
 
-1) **Register users** (\`user1\` = owner, \`user2\` = requester) — keys are generated and stored securely.  
-2) **Upload** — file is encrypted locally with a unique **AES-GCM** key before storage.  
-3) **Share** — the file key is securely wrapped for the target user (no file re-encryption).  
-4) **Download** — authorized users unwrap the key and decrypt locally.  
-5) **Revoke** — remove the user’s wrapped key entry to instantly revoke access.  
-6) **Audit log** — track file actions and detect tampering via integrity checks.
+<img width="873" height="659" alt="Access Control View" src="https://github.com/user-attachments/assets/0d636c3a-30cd-4ed1-8627-d28b7677ea2d" />
 
-<img width="875" height="654" alt="Screenshot 2026-01-30 at 10 18 14 PM" src="https://github.com/user-attachments/assets/9b6f2642-6db1-472d-ba33-0a19f909c47e" />
-
-<img width="873" height="659" alt="Screenshot 2026-01-30 at 10 18 23 PM" src="https://github.com/user-attachments/assets/0d636c3a-30cd-4ed1-8627-d28b7677ea2d" />
-
-
----
-
-## Security Highlights
-- **X25519** for secure key wrapping
-- **AES-GCM** for authenticated encryption
+## Security highlights
+- X25519 for secure key wrapping
+- AES-GCM for authenticated encryption
 - Per-user access control without re-encrypting files
 - Tamper-evident audit logging
+
+## Key learnings
+- Key management and usability must be designed together
+- Wrapping keys enables clean revocation without touching the ciphertext
 `,
   },
+
   {
     slug: "suspicious-activity-alerts",
     title: "Suspicious Activity Alert Generation",
@@ -318,19 +263,21 @@ Welcome page with project overview and features
       "Built as an applied CV system rather than a notebook-only demo.",
     ],
     details: `
-# Suspicious Activity Alert Generation using Transfer Learning 
+# Suspicious Activity Alert Generation (Transfer Learning)
 
-Suspicious Activity Alert Generation is a surveillance pipeline that takes real-time CCTV footage as input and runs it through a CNN built using transfer learning to detect suspicious activities such as **Shoplifting**, **Robbery**, or **Break-In**.
+## Overview
+A surveillance pipeline that takes CCTV footage as input and uses transfer learning to detect suspicious activities such as shoplifting, robbery, or break-ins.
 
-The goal is to reduce reliance on human monitoring by automatically identifying suspicious events and generating alerts to notify store owners as soon as an incident occurs. This enables faster response time and improves overall safety in retail environments.
-
----
+## What I built
+- Transfer learning based activity classifier for suspicious vs normal events
+- Simple detection + alerting flow to reduce reliance on constant human monitoring
+- Focused on practical deployment thinking rather than a notebook-only demo
 
 ## Demo (Shoplifting)
 ![Shoplifting](https://github.com/user-attachments/assets/413a2bfc-49c7-44de-b7d4-de19caa12a2d)
-`
-,
+`,
   },
+
   {
     slug: "duckhunt-ar",
     title: "DuckHuntAR",
@@ -346,16 +293,18 @@ The goal is to reduce reliance on human monitoring by automatically identifying 
       "Hands-on XR-style development experience.",
     ],
     details: `
-# DuckHuntAR 🎯
+# DuckHuntAR
 
-A remake of the classic Duck Hunt game built using **Augmented Reality**, developed in **Unity** with **Vuforia** for AR tracking.
+## Overview
+A remake of the classic Duck Hunt game built in Augmented Reality using Unity + Vuforia. Targets are placed in the user’s real environment for an immersive experience.
 
-The project recreates the core gameplay mechanics of Duck Hunt while leveraging AR to place targets directly into the user’s physical environment, creating an immersive and interactive experience.
-
----
+## Features
+- AR gameplay using real-world surfaces
+- Classic Duck Hunt mechanics reimagined in AR
+- Real-time object tracking and interaction
+- Built and tested on mobile devices
 
 ## Demo Video
-
 <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:20px 0;">
   <iframe
     src="https://www.youtube.com/embed/HPfInDkasmk"
@@ -366,17 +315,9 @@ The project recreates the core gameplay mechanics of Duck Hunt while leveraging 
     style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:6px;"
   ></iframe>
 </div>
-
----
-
-## Features
-- Augmented Reality gameplay using real-world surfaces
-- Classic Duck Hunt mechanics reimagined in AR
-- Real-time object tracking and interaction
-- Built and tested on mobile devices
-
 `,
   },
+
   {
     slug: "ai-chatbot",
     title: "Conversational AI Chatbot",
@@ -387,62 +328,30 @@ The project recreates the core gameplay mechanics of Duck Hunt while leveraging 
     repoUrl: "",
     liveUrl: "/chatbot",
     highlights: [
-      "Built a conversational AI chatbot using NLP and large language models.",
-      "Integrated frontend and backend for real-time messaging.",
-      "Handled context management, prompt engineering, and API orchestration.",
-      "Deployed as an interactive web application.",
+      "Conversational AI chatbot embedded directly into the portfolio experience.",
+      "Integrated UI and backend for real-time messaging.",
+      "Handled prompt orchestration and context-aware responses.",
     ],
     details: `
 # Conversational AI Chatbot (HelpBot Houdini)
 
-An interactive conversational AI system embedded directly into my portfolio, allowing visitors to engage with the chatbot in real time.
+## Overview
+An interactive conversational AI system embedded directly into my portfolio so visitors can experience the chatbot live, not as a static demo link.
 
-Unlike a static demo or external link, this chatbot is fully integrated into the site and runs live within the portfolio experience itself.
+## How it works
+- Deployed as a dedicated route (\`/chatbot)
+- Users can start chatting immediately without setup or redirection
+- Designed for real-time interaction inside the portfolio UI
 
----
+## System architecture (high level)
+- React-based chat interface with a minimal UI
+- API-based inference for responses
+- Context-aware message handling and prompt orchestration
 
-## How It Works
-
-The chatbot is deployed as a dedicated route (\`/chatbot\`) and opens directly into an active conversation window when accessed. Visitors can immediately start interacting with the system without any setup or redirection.
-
----
-
-## System Architecture
-
-- **Frontend Integration**
-  - Built with React and embedded directly into the portfolio UI
-  - Chat interface opens automatically when the page loads
-  - Clean, minimal design consistent with the overall site theme
-
-- **Conversation Engine**
-  - Uses NLP techniques and large language models to generate responses
-  - Supports contextual conversation and prompt-based reasoning
-  - Designed to handle general queries and exploratory interaction
-
-- **Real-Time Interaction**
-  - Messages are processed dynamically as users type
-  - Responses are rendered instantly in the chat window
-  - Input remains focused on load to encourage immediate interaction
-
----
-
-## Why It’s Embedded
-
-Embedding the chatbot directly into the portfolio serves two purposes:
-1. Demonstrates practical AI integration in a real product setting
-2. Allows visitors to experience the system firsthand, rather than reading about it
-
-This approach highlights full-stack ownership, from UI and routing to AI behavior and deployment within a single cohesive application.
-
----
-
-## Tech Stack
-- **Frontend:** React
-- **AI / NLP:** Large Language Models
-- **Integration:** API-based inference
-- **Deployment:** Live within the portfolio application
-`
-,
+## Why it’s embedded
+- Demonstrates practical AI integration in a real product setting
+- Lets visitors evaluate the experience firsthand
+`,
   },
 ];
 

@@ -17,18 +17,26 @@ export default function Certifications() {
         {CERTIFICATIONS.map((c) => (
           <div key={c.link} className="border-b border-black/10 dark:border-white/15 pb-5">
             <div className="flex gap-4 items-start">
-              <img src={c.image || getCertIcon(c)} alt="" className="w-12 h-12 mt-1 flex-none" />
+             <div className="mt-1 flex-none w-12 h-12 rounded-xl border border-black/10 dark:border-white/20 bg-black/5 dark:bg-white/10 flex items-center justify-center">
+              <img
+                src={c.image || getCertIcon(c)}
+                alt={`${c.org} certification icon`}
+                loading="lazy"
+                className="w-12 h-12 dark:invert dark:brightness-110"
+              />
+
+            </div>
               <div>
-            <a
-              href={c.link}
-              target="_blank"
-              rel="noreferrer"
-              className="underline underline-offset-4 hover:opacity-70 font-semibold"
-            >
-              {c.name}
-            </a>
-            <div className="text-sm mt-1 opacity-80">{c.org}</div>
-            <p className="text-sm mt-2 opacity-85 leading-relaxed">{c.focus}</p>
+                <a
+                  href={c.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline underline-offset-4 hover:opacity-70 font-semibold"
+                >
+                  {c.name}
+                </a>
+                <div className="text-sm mt-1 opacity-80">{c.org}</div>
+                <p className="text-sm mt-2 opacity-85 leading-relaxed">{c.focus}</p>
               </div>
             </div>
           </div>

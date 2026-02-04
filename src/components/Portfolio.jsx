@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Mail, Github, Linkedin } from "lucide-react";
 import ChatBot from "./ChatBot.jsx";
 
 // Lucas-style: minimal, readable, fast.
@@ -176,16 +176,34 @@ export const CERTIFICATIONS = [
 
 function DotNav() {
   return (
-    <nav aria-label="Primary" className="w-full flex justify-center py-6">
-      <div className="text-sm">
-        {NAV.map((item, i) => (
-          <span key={item.href}>
-            <a className="underline underline-offset-4 hover:opacity-70" href={item.href}>
-              {item.label.toLowerCase()}
-            </a>
-            {i < NAV.length - 1 ? <span className="px-2">•</span> : null}
-          </span>
-        ))}
+    <nav aria-label="Primary" className="sticky top-0 z-20 bg-white/90 backdrop-blur border-b border-black/10">
+      <div className="max-w-3xl mx-auto px-5 py-4">
+        {/* Desktop: dot nav */}
+        <div className="hidden md:block text-sm">
+          {NAV.map((item, i) => (
+            <span key={item.href}>
+              <a className="underline underline-offset-4 hover:opacity-70" href={item.href}>
+                {item.label.toLowerCase()}
+              </a>
+              {i < NAV.length - 1 ? <span className="px-2 opacity-40">•</span> : null}
+            </span>
+          ))}
+        </div>
+
+        {/* Mobile: horizontal scroll */}
+        <div className="md:hidden overflow-x-auto" style={{ WebkitOverflowScrolling: "touch" }}>
+          <div className="flex items-center gap-4 text-sm pr-2">
+            {NAV.map((item) => (
+              <a
+                key={item.href}
+                className="whitespace-nowrap underline underline-offset-4 hover:opacity-70"
+                href={item.href}
+              >
+                {item.label.toLowerCase()}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </nav>
   );
@@ -220,13 +238,7 @@ function ProjectGrid({ projects }) {
           className="block border border-[color:var(--border)] rounded-md overflow-hidden hover:border-black/40 transition-colors"
         >
           <div className="aspect-[16/9] bg-black/5">
-            {/* keep image if present in /public */}
-            <img
-              src={p.image}
-              alt={p.title}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
+            <img src={p.image} alt={p.title} className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div className="p-4">
             <div className="flex items-start justify-between gap-3">
@@ -284,10 +296,10 @@ export default function Portfolio() {
   const projects = useMemo(() => PROJECTS, []);
 
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-white text-black flex flex-col">
       <DotNav />
 
-      <main className="max-w-3xl mx-auto px-5 pb-20">
+      <main className="flex-1 w-full max-w-3xl mx-auto px-5 pb-16">
         <section id="home" className="py-10">
           <h1 className="text-3xl font-semibold">hi, i&apos;m siddesh.</h1>
           <p className="mt-4 leading-relaxed opacity-90">
@@ -307,11 +319,7 @@ export default function Portfolio() {
               linkedin
             </a>
             <span className="px-2">•</span>
-            <a
-              className="underline underline-offset-4 hover:opacity-70"
-              href="/resume.pdf"
-              download="SiddeshKamble_Resume.pdf"
-            >
+            <a className="underline underline-offset-4 hover:opacity-70" href="/resume.pdf" download="SiddeshKamble_Resume.pdf">
               resume
             </a>
           </p>
@@ -374,11 +382,7 @@ export default function Portfolio() {
             </button>
           </div>
 
-          {projectView === "grid" ? (
-            <ProjectGrid projects={projects} />
-          ) : (
-            <ProjectList projects={projects} />
-          )}
+          {projectView === "grid" ? <ProjectGrid projects={projects} /> : <ProjectList projects={projects} />}
         </Section>
 
         <Section id="publications" title="Publications">
@@ -386,12 +390,7 @@ export default function Portfolio() {
             {PUBLICATIONS.map((p) => (
               <div key={p.link} className="border-b border-black/10 pb-5">
                 <div className="flex items-start justify-between gap-3">
-                  <a
-                    href={p.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="underline underline-offset-4 hover:opacity-70 font-semibold"
-                  >
+                  <a href={p.link} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:opacity-70 font-semibold">
                     {p.title}
                   </a>
                   <span className="text-sm opacity-70">{p.year}</span>
@@ -407,12 +406,7 @@ export default function Portfolio() {
           <div className="space-y-5">
             {CERTIFICATIONS.map((c) => (
               <div key={c.link} className="border-b border-black/10 pb-5">
-                <a
-                  href={c.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="underline underline-offset-4 hover:opacity-70 font-semibold"
-                >
+                <a href={c.link} target="_blank" rel="noreferrer" className="underline underline-offset-4 hover:opacity-70 font-semibold">
                   {c.name}
                 </a>
                 <div className="text-sm mt-1 opacity-80">{c.org}</div>
@@ -424,29 +418,44 @@ export default function Portfolio() {
 
         <Section id="contact" title="Contact">
           <p className="leading-relaxed opacity-90">
-            Best way to reach me is email: {" "}
+            Best way to reach me is email:{" "}
             <a className="underline underline-offset-4 hover:opacity-70" href={`mailto:${email}`}>
               {email}
             </a>
             .
           </p>
           <p className="mt-2 leading-relaxed opacity-90">
-            Or find me on {" "}
+            Or find me on{" "}
             <a className="underline underline-offset-4 hover:opacity-70" href={github} target="_blank" rel="noreferrer">
               GitHub
-            </a>
-            {" "}and{" "}
+            </a>{" "}
+            and{" "}
             <a className="underline underline-offset-4 hover:opacity-70" href={linkedin} target="_blank" rel="noreferrer">
               LinkedIn
             </a>
             .
           </p>
         </Section>
-
-        <footer className="pt-10 text-sm opacity-70">
-          © {new Date().getFullYear()} Siddesh Kamble
-        </footer>
       </main>
+
+      {/* ✅ Footer outside main so it stays at bottom */}
+      <footer className="border-t border-black/10">
+        <div className="max-w-3xl mx-auto px-5 py-6 flex items-center justify-between gap-4 text-sm">
+          <div className="opacity-70">© {new Date().getFullYear()} Siddesh Kamble</div>
+
+          <div className="flex items-center gap-3">
+            <a href={`mailto:${email}`} aria-label="Email" className="rounded-full p-2 hover:bg-black/5 transition">
+              <Mail size={18} />
+            </a>
+            <a href={github} target="_blank" rel="noreferrer" aria-label="GitHub" className="rounded-full p-2 hover:bg-black/5 transition">
+              <Github size={18} />
+            </a>
+            <a href={linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="rounded-full p-2 hover:bg-black/5 transition">
+              <Linkedin size={18} />
+            </a>
+          </div>
+        </div>
+      </footer>
 
       {/* Keep chatbot, but rest of site stays minimal */}
       <ChatBot />
