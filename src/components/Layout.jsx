@@ -16,9 +16,9 @@ export default function Layout({ children }) {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const email = "siddeshkamble45@gmail.com";
+  const email = "siddesh.kamble@techsmail.com";
   const github = "https://github.com/SiddeshKamble";
-  const linkedin = "https://www.linkedin.com/in/siddesh-kamble";
+  const linkedin = "https://www.linkedin.com/in/siddeshkamble";
 
   return (
     <div className="min-h-screen bg-[color:var(--bg)] text-[color:var(--text)] flex flex-col">

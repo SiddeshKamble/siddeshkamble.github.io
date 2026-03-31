@@ -1,8 +1,8 @@
 // Centralized content/data for the portfolio (easy to edit)
 
-export const EMAIL = "siddeshkamble.jobs@gmail.com";
+export const EMAIL = "siddesh.kamble@techsmail.com";
 export const GITHUB = "https://github.com/SiddeshKamble";
-export const LINKEDIN = "https://www.linkedin.com/in/siddesh-kamble";
+export const LINKEDIN = "https://www.linkedin.com/in/siddeshkamble";
 export const RESUME_PATH = "/resume.pdf";
 
 // Navigation
@@ -37,23 +37,35 @@ export const SKILLS = [
 
 export const EXPERIENCES = [
   {
-    slug: "iconsult",
-    role: "Software Engineer",
-    org: "iConsult Collaborative",
-    orgUrl:
-      "https://ischool.syracuse.edu/careers/experiential-learning/iconsult-collaborative/",
-    time: "Jan ’25 – Dec ’25",
+    slug: "stripe",
+    role: "Software Engineer, Machine Learning (Backend Systems)",
+    org: "Stripe",
+    orgUrl: "https://stripe.com/",
+    time: "Aug ’25 – Present",
     summary:
-      "Led end-to-end development of a scalable applicant management platform used by internal caseworkers to streamline intake, eligibility checks, and reporting workflows.",
-    tags: ["React", "Next.js", "MySQL", "Prisma ORM", "Tailwind CSS", "GCP"],
+      "Building AI-powered document intelligence and compliance systems using LLM pipelines, retrieval infrastructure, and high-performance backend services.",
+    tags: [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "LangChain",
+      "LangGraph",
+      "FAISS",
+      "OpenAI",
+      "AWS",
+      "GCP",
+      "Docker",
+    ],
     bullets: [
-      "Built and shipped a full-stack Next.js and MySQL platform supporting 20–30 caseworkers and thousands of monthly interactions.",
-      "Designed and optimized a normalized relational data model to track household income, benefits, and longitudinal eligibility data.",
-      "Developed cloud-native ingestion and validation services on Google Cloud to process large weekly datasets and reduce manual data entry.",
-      "Built analytics dashboards exposing real-time financial and social-impact metrics to speed up eligibility decisions and reporting.",
-      "Collaborated closely with PMs and engineers in a cross-functional team to define APIs, schemas, and scalable cloud architecture.",
+      "Designed LLM-powered document processing pipelines using Python, LangChain, and OpenAI APIs, extracting insights from 120K+ financial documents and reducing manual review time by 40%.",
+      "Architected retrieval infrastructure using vector embeddings, FAISS indexing, and metadata filtering across 15M+ records, improving response accuracy by 30%.",
+      "Developed backend inference services using Python, FastAPI, and PostgreSQL with Redis caching and async processing to maintain sub-250ms latency.",
+      "Engineered agent-based workflows using LangGraph for automated document validation and multi-step compliance checks.",
+      "Deployed containerized AI services using Docker and cloud platforms (AWS/GCP) with CI/CD pipelines for faster production releases.",
+      "Built evaluation pipelines and monitoring systems to improve model reliability and reduce hallucination in production workflows.",
     ],
   },
+
   {
     slug: "quantiphi-ccai",
     role: "Software Engineer – Conversational AI",
@@ -61,20 +73,20 @@ export const EXPERIENCES = [
     orgUrl: "https://quantiphi.com/",
     time: "Jun ’21 – Oct ’23",
     summary:
-      "Built and maintained production-grade conversational AI systems serving tens of thousands of users across web, mobile, and telephony platforms.",
+      "Developed production-scale conversational AI platforms and backend systems supporting 50K+ users with high availability and real-time data integration.",
     tags: [
-      "Google Dialogflow",
-      "Node.js",
-      "Conversational AI",
-      "Google Cloud Platform",
-      "Cloud Functions",
+      "Dialogflow ES/CX",
+      "Python",
+      "Flask",
+      "AWS",
+      "Microservices",
     ],
     bullets: [
-      "Engineered Dialogflow ES and CX chatbots and IVR systems with high availability under strict SLA requirements.",
-      "Designed conversation flows, routing logic, and fallback strategies to reduce human agent handoffs and improve task completion rates.",
-      "Built Node.js backends and serverless Cloud Functions for real-time fulfillment and data lookups.",
-      "Integrated Dialogflow CX with a Soul Machines digital human to deliver an AI-driven psychology training assistant used by 300+ students.",
-      "Partnered with product, UX, and engineering teams to improve observability, monitoring, and production reliability.",
+      "Implemented conversational AI systems using Dialogflow ES/CX, Python, and REST APIs, supporting 50K+ users with 99–99.5% uptime.",
+      "Built backend orchestration services using Python and microservices, improving intent routing accuracy and reducing human-agent escalations.",
+      "Integrated conversational systems with enterprise data services via APIs and AWS infrastructure for real-time data retrieval.",
+      "Developed analytics pipelines using Python, SQL, and A/B testing to optimize conversation performance.",
+      "Improved deployment stability using CI/CD pipelines, Docker, Git, and Jenkins.",
     ],
   },
   {
@@ -84,14 +96,38 @@ export const EXPERIENCES = [
     orgUrl: "https://markytics.ai/",
     time: "Jan ’21 – Jun ’21",
     summary:
-      "Worked on backend services, analytics pipelines, and machine learning workflows for financial risk scoring and forecasting systems.",
+      "Worked on data pipelines, analytics, and machine learning workflows to support financial risk scoring and business forecasting.",
     tags: ["Python", "Django", "REST APIs", "Machine Learning", "Power BI"],
     bullets: [
-      "Built Python microservices and batch jobs to score financial risk across thousands of loan accounts.",
-      "Developed Django-based backends to expose machine learning models through stable REST APIs.",
-      "Designed analytics and forecasting layers for regional and territory managers to compare forecast versus actual performance.",
-      "Translated business requirements into data-driven features such as sentiment tagging, write-off logic, and reporting dashboards.",
-      "Ran A/B tests and predictive analyses to validate model impact and improve campaign performance.",
+      "Analyzed financial datasets to build risk scoring models across thousands of loan accounts using Python.",
+      "Developed data pipelines and backend services to process, clean, and transform large-scale financial data.",
+      "Designed forecasting solutions for regional managers to compare predicted vs actual performance.",
+      "Created Power BI dashboards to visualize key business metrics and support data-driven decision-making.",
+      "Conducted A/B testing and predictive analysis to evaluate model performance and improve campaign outcomes.",
+    ],
+  },
+  {
+    slug: "space-infolab",
+    role: "Software Developer – Backend",
+    org: "Space Infolab",
+    orgUrl: "https://spaceinfolab.com/",
+    time: "Jan ’19 – May ’21",
+    summary:
+      "Built backend systems, data pipelines, and distributed processing workflows for high-volume applications and analytics systems.",
+    tags: [
+      "Python",
+      "Django",
+      "PostgreSQL",
+      "Celery",
+      "Redis",
+      "Docker",
+    ],
+    bullets: [
+      "Designed backend services using Python and Django with modular architecture for scalable applications.",
+      "Implemented asynchronous job processing using Celery and Redis for high-throughput workloads.",
+      "Optimized SQL queries and relational data models using PostgreSQL indexing and profiling.",
+      "Developed data ingestion and transformation pipelines using Python and Pandas.",
+      "Managed containerized environments using Docker and Linux to improve deployment reliability.",
     ],
   },
 ];

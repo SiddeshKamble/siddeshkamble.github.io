@@ -106,8 +106,10 @@ function extractSkillsFromResume(records) {
 // ---------- company + project routing ----------
 const COMPANY_ALIASES = [
   { keys: ["quantiphi", "quantiphi inc"], label: "Quantiphi Inc." },
-  { keys: ["iconsult", "iconsult collaborative", "i consult"], label: "iConsult Collaborative" },
+  // { keys: ["iconsult", "iconsult collaborative", "i consult"], label: "iConsult Collaborative" },
+   { keys: ["Stripe", "stripe"], label: "Stripe" },
   { keys: ["markytics", "markytics.ai"], label: "Markytics.AI" },
+  { keys: ["spaceinfo", "spaceinfolab.com"], label: "SpaceInfo Lab" },
 ];
 
 function detectCompany(question) {

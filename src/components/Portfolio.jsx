@@ -38,12 +38,23 @@ export const SKILLS = [
 
 export const EXPERIENCES = [
   {
-    role: "Software Developer",
-    org: "iConsult Collaborative",
-    time: "Jan ’25 – Dec ’25",
+    role: "Software Engineer, Machine Learning (Backend Systems)",
+    org: "Stripe",
+    time: "Aug ’25 – Present",
     summary:
-      "Led full-stack development of a scalable applicant management platform used by internal caseworkers, improving intake, eligibility, and reporting workflows.",
-    tags: ["React", "Next.js", "MySQL", "Prisma ORM", "Tailwind CSS"],
+      "Building AI-powered document intelligence systems using LLM pipelines, retrieval infrastructure (FAISS), and high-performance backend services. Processed 120K+ financial documents and improved retrieval accuracy across 15M+ records.",
+    tags: [
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "LangChain",
+      "LangGraph",
+      "FAISS",
+      "OpenAI",
+      "AWS",
+      "GCP",
+      "Docker",
+    ],
   },
   {
     role: "Conversational AI Engineer",
@@ -60,12 +71,27 @@ export const EXPERIENCES = [
     ],
   },
   {
-    role: "Data Science Intern",
+    role: "Analytics and Machine Learning Intern",
     org: "Markytics.AI",
     time: "Jan ’21 – Jun ’21",
     summary:
       "Developed backend services and analytics pipelines for financial risk scoring and forecasting. Exposed ML models through stable REST APIs.",
     tags: ["Django", "Power BI", "Google Data Studio", "Machine Learning", "Python"],
+  },
+  {
+    role: "Software Developer – Backend",
+    org: "Space Infolab",
+    time: "Jan ’19 – May ’21",
+    summary:
+      "Built backend services, data pipelines, and distributed processing systems using Python, Django, and PostgreSQL to support high-volume data workflows and analytics.",
+    tags: [
+      "Python",
+      "Django",
+      "PostgreSQL",
+      "Celery",
+      "Redis",
+      "Docker",
+    ],
   },
 ];
 

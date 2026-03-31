@@ -1,12 +1,12 @@
 {
   "experience": [
     {
-      "title": "Software Developer",
-      "company": "iConsult Collaborative",
-      "dates": "Jan 2025 - Dec 2025",
+      "title": "Software Engineer, Machine Learning (Backend Systems)",
+      "company": "Stripe",
+      "dates": "Aug 2025 - Present",
       "highlights": [
-        "Led full-stack development of a scalable applicant management platform used by internal caseworkers.",
-        "Improved intake, eligibility, and reporting workflows."
+        "Designed LLM-powered document processing pipelines using Python, LangChain, and OpenAI APIs, extracting insights from 120K+ financial documents and reducing manual review time by 40%.",
+        "Built evaluation pipelines and monitoring systems to improve model reliability and reduce hallucination in production workflows."
       ],
       "tech": ["React", "Next.js", "MySQL", "Prisma ORM", "Tailwind CSS"]
     },

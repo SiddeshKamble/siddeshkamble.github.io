@@ -1,12 +1,12 @@
-// server/server.js (NO OpenAI)
 import fs from "fs";
 import path from "path";
 import express from "express";
 import cors from "cors";
 
 const KB_PATH = path.join(process.cwd(), "server", "kb", "index.json");
+
 if (!fs.existsSync(KB_PATH)) {
-  console.error("KB missing. Run: node server/scripts/ingest.js");
+  console.error("❌ KB missing. Run: node server/scripts/ingest.js");
   process.exit(1);
 }
 
@@ -32,173 +32,112 @@ function tokenize(s) {
 }
 
 function scoreText(queryTokens, text) {
-  const t = tokenize(text);
-  if (!t.length) return 0;
-  const freq = new Map();
-  for (const w of t) freq.set(w, (freq.get(w) || 0) + 1);
+  const words = tokenize(text);
+  const freq = {};
+
+  words.forEach((w) => {
+    freq[w] = (freq[w] || 0) + 1;
+  });
 
   let score = 0;
-  for (const q of queryTokens) {
-    const f = freq.get(q) || 0;
-    if (f > 0) score += 1 + Math.log(1 + f);
-  }
+
+  queryTokens.forEach((q) => {
+    if (freq[q]) {
+      score += 1 + Math.log(freq[q]);
+    }
+  });
+
   return score;
 }
 
-function looksLike(q, keywords) {
-  const qq = normalize(q);
-  return keywords.some((k) => qq.includes(k));
-}
+function searchKB(query) {
+  const tokens = tokenize(query);
 
-function findCompanyFromQuestion(q, companies) {
-  const qq = normalize(q);
-  return companies.find((c) => qq.includes(normalize(c)));
-}
+  const results = (kb.records || [])
+    .map((r) => ({
+      ...r,
+      score: scoreText(tokens, r.text),
+    }))
+    .filter((r) => r.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3);
 
-function formatExperienceItem(e) {
-  return [
-    `${e.title} — ${e.company} (${e.dates})`,
-    ...(e.highlights || []).map((h) => `• ${h}`),
-    e.tech?.length ? `Tech: ${e.tech.join(", ")}` : null,
-  ].filter(Boolean).join("\n");
-}
-
-function formatProjectItem(p) {
-  return [
-    `${p.name}: ${p.description}`,
-    p.tech?.length ? `Tech: ${p.tech.join(", ")}` : null,
-  ].filter(Boolean).join("\n");
-}
-
-function expertiseAnswer() {
-  // Pull from resume skills if you want later; for now: strong portfolio-ready response
-  return `
-Siddesh’s expertise includes:
-
-• Full-Stack Development: React, Next.js, Node.js, REST APIs  
-• Backend & Databases: MySQL, PostgreSQL, MongoDB, Prisma, SQL  
-• Cloud & DevOps: AWS, GCP, Docker, Kubernetes  
-• Conversational AI & ML: Dialogflow, NLP, CNNs, Transfer Learning  
-• Analytics & Tools: Power BI, Looker Studio, MLflow
-
-Sources: resume.pdf, portfolio.json
-`.trim();
+  return results;
 }
 
 function answer(question) {
   const q = normalize(question);
-  const qTokens = tokenize(question);
 
-  // ---- WHO IS ----
-  if (looksLike(q, ["who is", "tell me about", "about siddesh"])) {
+  // 🔥 Rule-based answers
+  if (q.includes("skills") || q.includes("tech")) {
     return `
-Siddesh Kamble is a Software Developer and Conversational AI Engineer based in New York.
+Skills include:
 
-He builds full-stack applications, cloud-native systems, and conversational AI solutions, with experience at iConsult Collaborative and Quantiphi.
-
-Sources: resume.pdf, portfolio.json
-`.trim();
+• Python, SQL, JavaScript  
+• FastAPI, Django, Flask  
+• LLMs, RAG, LangChain, LangGraph  
+• AWS, GCP, Docker  
+• PostgreSQL, Redis  
+`;
   }
 
-  // ---- EXPERTISE / SKILLS ---- (always answer)
-  if (looksLike(q, ["expertise", "skills", "skill", "technologies", "tech stack", "tech"])) {
-    return expertiseAnswer();
+  if (q.includes("experience")) {
+    return (kb.portfolio?.experience || [])
+      .map((e) => `• ${e.title} at ${e.company} (${e.dates})`)
+      .join("\n");
   }
 
-  // ---- PROJECTS ----
-  if (looksLike(q, ["projects", "project", "built"])) {
-    const projects = (kb.portfolio.projects || []).slice(0, 6);
-    return `
-Siddesh’s projects include:
-
-${projects.map((p) => `• ${p.name}`).join("\n")}
-
-Details:
-${projects.map((p) => formatProjectItem(p)).join("\n\n")}
-
-Sources: portfolio.json
-`.trim();
+  if (q.includes("projects")) {
+    return (kb.portfolio?.projects || [])
+      .map((p) => `• ${p.name}`)
+      .join("\n");
   }
 
-  // ---- EXPERIENCE ----
-  if (looksLike(q, ["experience", "work", "worked", "jobs", "job"])) {
-    const exp = kb.portfolio.experience || [];
-    return `
-Siddesh’s experience includes:
+  if (q.includes("stripe")) {
+    const match = (kb.portfolio?.experience || []).find((e) =>
+      e.company.toLowerCase().includes("stripe")
+    );
 
-${exp.map((e) => `• ${e.title} — ${e.company} (${e.dates})`).join("\n")}
-
-Sources: portfolio.json
-`.trim();
-  }
-
-  // ---- COMPANY-SPECIFIC: "What did he do at X?" ----
-  if (q.includes(" at ")) {
-    const companies = (kb.portfolio.experience || []).map((e) => e.company);
-    // also allow shorthand e.g., "iConsult" for "iConsult Collaborative"
-    const aliases = [
-      ...companies,
-      "iConsult",
-      "Quantiphi",
-    ];
-
-    const company = findCompanyFromQuestion(q, aliases);
-    if (company) {
-      const match = (kb.portfolio.experience || []).find((e) =>
-        normalize(e.company).includes(normalize(company)) || normalize(company).includes(normalize(e.company))
-      );
-
-      if (match) {
-        return `
-At ${match.company}, Siddesh worked as:
-
-${match.title} (${match.dates})
-
-Key work:
-${(match.highlights || []).map((h) => `• ${h}`).join("\n")}
-${match.tech?.length ? `\nTech: ${match.tech.join(", ")}` : ""}
-
-Sources: portfolio.json
-`.trim();
-      }
-    }
-  }
-
-  // ---- FALLBACK: Search resume chunks ----
-  if (qTokens.length) {
-    const top = (kb.resumeChunks || [])
-      .map((r) => ({ ...r, score: scoreText(qTokens, r.text) }))
-      .filter((r) => r.score > 0)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 3);
-
-    if (top.length) {
+    if (match) {
       return `
-Here’s what I found in the resume related to your question:
+At Stripe:
 
-${top.map((t, i) => `(${i + 1}) ${t.text.slice(0, 260)}…`).join("\n\n")}
-
-Sources: resume.pdf
-`.trim();
+${match.highlights.map((h) => `• ${h}`).join("\n")}
+`;
     }
   }
 
-  return `I couldn’t find a strong match in the resume/portfolio. Try using a company name, project name, or tech keyword.\n\nSources: resume.pdf, portfolio.json`;
+  // 🔍 Retrieval fallback
+  const results = searchKB(question);
+
+  if (results.length) {
+    return `
+Here’s what I found:
+
+${results.map((r) => `• ${r.text.slice(0, 200)}...`).join("\n\n")}
+`;
+  }
+
+  return "I couldn't find relevant information.";
 }
 
 const app = express();
 app.use(cors());
-app.use(express.json({ limit: "1mb" }));
+app.use(express.json());
 
 app.post("/api/chat", (req, res) => {
-  try {
-    const { question } = req.body;
-    if (!question) return res.status(400).json({ error: "Missing question" });
-    return res.json({ answer: answer(question) });
-  } catch (e) {
-    return res.status(500).json({ error: String(e.message || e) });
+  const { question } = req.body;
+
+  if (!question) {
+    return res.status(400).json({ error: "Missing question" });
   }
+
+  const response = answer(question);
+  res.json({ answer: response });
 });
 
-const PORT = process.env.PORT || 5050;
-app.listen(PORT, () => console.log(`✅ Backend running: http://localhost:${PORT}`));
+const PORT = 5050;
+
+app.listen(PORT, () => {
+  console.log(`✅ Server running at http://localhost:${PORT}`);
+});
