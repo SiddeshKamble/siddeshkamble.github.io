@@ -78,21 +78,6 @@ export const EXPERIENCES = [
       "Developed backend services and analytics pipelines for financial risk scoring and forecasting. Exposed ML models through stable REST APIs.",
     tags: ["Django", "Power BI", "Google Data Studio", "Machine Learning", "Python"],
   },
-  {
-    role: "Analytics & Machine Learning Intern",
-    org: "Markytics.AI",
-    time: "Jan ’21 – May ’21",
-    summary:
-      "Built backend services, data pipelines, and distributed processing systems using Python, Django, and PostgreSQL to support high-volume data workflows and analytics.",
-    tags: [
-      "Python",
-      "Django",
-      "PostgreSQL",
-      "Celery",
-      "Redis",
-      "Docker",
-    ],
-  },
 ];
 
 export const PROJECTS = [
