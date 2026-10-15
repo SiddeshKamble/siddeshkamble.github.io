@@ -1,6 +1,6 @@
 // Centralized content/data for the portfolio (easy to edit)
 
-export const EMAIL = "siddesh.kamble@techsmail.com";
+export const EMAIL = "siddeshkamble45@gmail.com";
 export const GITHUB = "https://github.com/SiddeshKamble";
 export const LINKEDIN = "https://www.linkedin.com/in/siddeshkamble";
 export const RESUME_PATH = "/resume.pdf";
@@ -104,30 +104,6 @@ export const EXPERIENCES = [
       "Designed forecasting solutions for regional managers to compare predicted vs actual performance.",
       "Created Power BI dashboards to visualize key business metrics and support data-driven decision-making.",
       "Conducted A/B testing and predictive analysis to evaluate model performance and improve campaign outcomes.",
-    ],
-  },
-  {
-    slug: "space-infolab",
-    role: "Software Developer – Backend",
-    org: "Space Infolab",
-    orgUrl: "https://spaceinfolab.com/",
-    time: "Jan ’19 – May ’21",
-    summary:
-      "Built backend systems, data pipelines, and distributed processing workflows for high-volume applications and analytics systems.",
-    tags: [
-      "Python",
-      "Django",
-      "PostgreSQL",
-      "Celery",
-      "Redis",
-      "Docker",
-    ],
-    bullets: [
-      "Designed backend services using Python and Django with modular architecture for scalable applications.",
-      "Implemented asynchronous job processing using Celery and Redis for high-throughput workloads.",
-      "Optimized SQL queries and relational data models using PostgreSQL indexing and profiling.",
-      "Developed data ingestion and transformation pipelines using Python and Pandas.",
-      "Managed containerized environments using Docker and Linux to improve deployment reliability.",
     ],
   },
 ];
