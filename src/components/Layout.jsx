@@ -16,7 +16,7 @@ export default function Layout({ children }) {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
-  const email = "siddesh.kamble@techsmail.com";
+  const email = "siddeshkamble45@gmail.com";
   const github = "https://github.com/SiddeshKamble";
   const linkedin = "https://www.linkedin.com/in/siddeshkamble";
 

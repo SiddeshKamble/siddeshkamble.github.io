@@ -40,7 +40,7 @@ export const EXPERIENCES = [
   {
     role: "Software Engineer, Machine Learning (Backend Systems)",
     org: "Stripe",
-    time: "Aug ’25 – Present",
+    time: "Aug ’25 – Aug ’26",
     summary:
       "Building AI-powered document intelligence systems using LLM pipelines, retrieval infrastructure (FAISS), and high-performance backend services. Processed 120K+ financial documents and improved retrieval accuracy across 15M+ records.",
     tags: [
@@ -79,9 +79,9 @@ export const EXPERIENCES = [
     tags: ["Django", "Power BI", "Google Data Studio", "Machine Learning", "Python"],
   },
   {
-    role: "Software Developer – Backend",
-    org: "Space Infolab",
-    time: "Jan ’19 – May ’21",
+    role: "Analytics & Machine Learning Intern",
+    org: "Markytics.AI",
+    time: "Jan ’21 – May ’21",
     summary:
       "Built backend services, data pipelines, and distributed processing systems using Python, Django, and PostgreSQL to support high-volume data workflows and analytics.",
     tags: [
